@@ -5,6 +5,7 @@
   "repository": "https://github.com/eusouleoandrade/ApiCepNodeJs.git",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.20.0",
     "express": "^4.17.1"
   }
 }
