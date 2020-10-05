@@ -2,9 +2,15 @@
 const axios = require('axios');
 
 module.exports = {
-    async show(request, response){
-        console.log(request);
+    async show(request, response) {
+        const { cep } = request.query;
 
-        return response.json('Olá');
+        if (cep == null || cep == "") {
+            return response.json({ 'exception': 'CEP não informado' })
+        };
+
+        const apiCepResponse = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+        
+        return response.json(apiCepResponse.data);
     },
 };
